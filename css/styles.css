@@ -77,7 +77,7 @@ img {
 /*HEADER*/
 
 .header {
-  border: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
 
   background-color: var(--basic-white);
   letter-spacing: 0.02em;
@@ -128,6 +128,22 @@ img {
 .site-nav .nav-link:not(:last-child),
 .header-contacts .contact:not(:last-child) {
   margin-right: 50px;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link .current::after {
+  position: absolute;
+  bottom: -1.4px;
+  display: block;
+  width: 100%;
+  content: "";
+  border: 2px solid var(--accent-color);
+  margin: 0;
+
+  border-radius: 2px;
 }
 
 .site-nav .link:hover,
@@ -296,6 +312,31 @@ img {
   font-size: 36px;
   line-height: 1.16;
   text-align: center;
+}
+.action-img {
+  position: relative;
+}
+
+.action-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.action-label .title-label {
+  margin: 0;
+  padding: 27px 0;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--basic-white);
 }
 
 /*Team*/
@@ -511,6 +552,57 @@ img {
   background-color: var(--accent-color);
 }
 
+/* Modal Window */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 530px;
+  height: 580px;
+
+  background-color: var(--basic-white);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.icon-close {
+  padding-top: 8px;
+  padding-right: 8px;
+}
+
 /*PORTFOLIO*/
 
 /*Filter*/
@@ -577,14 +669,58 @@ img {
 }
 
 .item-card {
-  width:calc((100% - 60px) / 3);
+  width: calc((100% - 60px) / 3);
   background: var(--basic-white);
+}
+
+.item-thumb {
+  position: relative;
+}
+
+.item-thumb::before {
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  /* display: flex; */
+
+  opacity: 0;
+}
+
+.item-thumb .item-description {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 25px;
+
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--basic-white);
+
+  opacity: 0;
 }
 
 .item-card .link:hover,
 .item-card .link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.item-card:hover .item-thumb::before,
+.item-card:hover .item-thumb .item-description {
+  opacity: 1;
 }
 
 .item-box {
