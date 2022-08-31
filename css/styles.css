@@ -631,8 +631,8 @@ img {
 
 .close-button {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
   margin: 0;
   padding: 0;
 
@@ -645,10 +645,10 @@ img {
   opacity: 0.5;
 }
 
-.icon-close {
+/* .icon-close {
   padding-top: 8px;
   padding-right: 8px;
-}
+} */
 
 /*PORTFOLIO*/
 
@@ -779,8 +779,8 @@ img {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.item-card:hover .item-overlay,
-.item-card:focus .item-overlay {
+.item-card .link:hover .item-overlay,
+.item-card .link:focus .item-overlay {
   transform: translateY(0);
 }
 
